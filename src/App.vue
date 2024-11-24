@@ -42,7 +42,7 @@
   })
 
   const search = () => {
-    /////это нужно будет если будем добавлять новые товары, без деструкторизации не сможем push-ть/////
+    /////это нужно будет если будем добавлять новые товары, без деструктуризации не сможем push-ть/////
     productsFiltred.value = [...products.value]
     ////////////////////////////////////////////////////
     productsFiltred.value = productsFiltred.value.filter(product => product.title.toLowerCase().includes(searchTitle.value.toLowerCase()) && (searchMaxPrice.value ? (product.price <= searchMaxPrice.value) : true))
