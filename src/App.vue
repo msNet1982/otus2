@@ -38,11 +38,13 @@
   const { data: products, isPending } = useGetProducts()
 
   watch(isPending, () => {
-    productsFiltred.value = products.value
+    productsFiltred.value = [...products.value]
   })
 
   const search = () => {
-    productsFiltred.value = products.value
+    /////это нужно будет если будем добавлять новые товары, без деструкторизации не сможем push-ть/////
+    productsFiltred.value = [...products.value]
+    ////////////////////////////////////////////////////
     productsFiltred.value = productsFiltred.value.filter(product => product.title.toLowerCase().includes(searchTitle.value.toLowerCase()) && (searchMaxPrice.value ? (product.price <= searchMaxPrice.value) : true))
   }
 
